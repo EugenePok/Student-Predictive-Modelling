@@ -13,7 +13,7 @@ for(k in 1:nfolds){ # k folds
   d1.test = d1[test_i,]
   d1.train = d1[-test_i,]
   
-  model.nb <- naiveBayes(pass_fail ~ .-id-G3, data = d1.train)
+  model.nb <- naiveBayes(pass_fail~.-id-G3-pass_fail-grades, data = d1.train)
   pred.nb <- predict(model.nb, newdata = d1.test)
   perform <- table(pred.nb, d1.test$pass_fail)
   
@@ -25,4 +25,3 @@ for(k in 1:nfolds){ # k folds
 }
 
 mean(Accuracy)
-

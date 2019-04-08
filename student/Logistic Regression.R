@@ -13,8 +13,7 @@ for(k in 1:nfolds){ # k folds
   d1.test = d1[test_i,]
   d1.train = d1[-test_i,]
   
-  logreg_model = glm(pass_fail~.-id-G3,data=d1.train, family=binomial)
-  summary(logreg_model)
+  logreg_model = glm(pass_fail~.-id-G3-pass_fail-grades,data=d1.train, family=binomial)
   fitted.results <- predict(logreg_model,newdata=d1.test,type='response')
   pred <- ifelse(fitted.results > 0.5,"Pass","Fail")
   perform <- table(pred, d1.test$pass_fail)
@@ -27,3 +26,5 @@ for(k in 1:nfolds){ # k folds
 }
 
 mean(Accuracy)
+summary(logreg_model)
+perform

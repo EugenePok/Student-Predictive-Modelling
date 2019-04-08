@@ -1,15 +1,3 @@
-d1=read.table("student-mat.csv",sep=";",header=TRUE)
-d2=read.table("student-por.csv",sep=";",header=TRUE)
-#d3=merge(d1,d2,by=c("school","sex","age","address","famsize","Pstatus","Medu","Fedu","Mjob","Fjob","reason","nursery","internet"))
-
-dim(d1)
-# There are 395 observations with 33 variables
-
-d1.length = dim(d1)[1]
-id = 1:d1.length
-pass_fail = as.factor(d1$G3 >= 10)
-d1 = data.frame(id,d1,pass_fail)
-
 library(kknn)
 Best_k = replicate(50,0)
 Accuracy = replicate(50,0) # Accuracy of each k
@@ -21,7 +9,7 @@ for(k in 1:nfolds){ # k folds
   d1.train = d1[-test_i,]
   
   for(nn in 1:50){ #no. of neighbor
-    d1.kknn = kknn(pass_fail~.-id-G3, d1.train, d1.test, k=nn, kernel = "triangular")
+    d1.kknn = kknn(pass_fail~.-id-G3-pass_fail-grades, d1.train, d1.test, k=nn, kernel = "triangular")
     fit = fitted(d1.kknn)
     perform <- table(fit, d1.test$pass_fail)
     Accuracy[nn] <- sum(perform[1,1],perform[2,2])/sum(perform[,])
@@ -51,7 +39,7 @@ for(k in 1:nfolds){ # k folds
   d1.test = d1[test_i,]
   d1.train = d1[-test_i,]
 
-  d1.kknn = kknn(pass_fail~.-id-G3, d1.train, d1.test, k=31, kernel = "triangular")
+  d1.kknn = kknn(pass_fail~.-id-G3-pass_fail-grades, d1.train, d1.test, k=31, kernel = "triangular")
   fit = fitted(d1.kknn)
   perform <- table(fit, d1.test$pass_fail)
   Accuracy[k] <- sum(perform[1,1],perform[2,2])/sum(perform[,])
@@ -62,4 +50,3 @@ for(k in 1:nfolds){ # k folds
 }
 
 mean(Accuracy)
-## TD Model : Logistic, Bagging, Random Forest, naives bayes
