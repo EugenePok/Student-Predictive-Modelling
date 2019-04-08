@@ -1,3 +1,9 @@
+library(BBmisc)
+d1$age <- normalize(d1$age, method="standardize")
+d1$absences <- normalize(d1$absences, method="standardize")
+d1$G1 <- normalize(d1$G1, method="standardize")
+d1$G2 <- normalize(d1$G2, method="standardize")
+
 library(kknn)
 Best_k = replicate(50,0)
 Accuracy = replicate(50,0) # Accuracy of each k
@@ -25,7 +31,7 @@ plot(1:50,Best_k,xlab = "k", ylab= "Best_k")
 result = data.frame(1:50,Best_k)
 write.csv(result,'Best_k_for_KNN.csv')
 
-nfolds = ceiling(d1.length/10)
+nfolds = 5
 foldPosition = sample(rep(1:nfolds, length.out = dim(d1)[1]))
 
 Accuracy = replicate(nfolds,0)
@@ -50,3 +56,4 @@ for(k in 1:nfolds){ # k folds
 }
 
 mean(Accuracy)
+remove(d1.kknn)
