@@ -24,5 +24,4 @@ for(k in 1:nfolds){ # k folds
   Precision.No[k] <- perform[1,1]/sum(perform[1,])
   Precision.Yes[k] <- perform[2,2]/sum(perform[2,])
 }
-
 mean(Accuracy)

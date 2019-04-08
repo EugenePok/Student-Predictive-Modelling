@@ -1,4 +1,4 @@
-nfolds = ceiling(d1.length/10)
+nfolds = 5
 foldPosition = sample(rep(1:nfolds, length.out = dim(d1)[1]))
 
 Accuracy = replicate(nfolds,0)
