@@ -1,0 +1,151 @@
+KNN Portuguese k=12 -G3
+> mean(Accuracy)
+[1] 0.8859511
+> mean(Recall.Yes)
+[1] 0.9854834
+> mean(Recall.No)
+[1] 0.3450216
+> mean(Precision.No)
+[1] 0.8053968
+> mean(Precision.Yes)
+[1] 0.8914319
+> remove(d2.kknn)
+
+KNN Portuguese k=12 -G3-G2-G1
+> mean(Accuracy)
+[1] 0.8582111
+> mean(Recall.Yes)
+[1] 0.9836977
+> mean(Recall.No)
+[1] 0.1737374
+> mean(Precision.No)
+[1] 0.6466667
+> mean(Precision.Yes)
+[1] 0.8670224
+> remove(d2.kknn)
+
+Naives Por -G3
+> mean(Accuracy)
+[1] 0.8783304
+> mean(Recall.Yes)
+[1] 0.8890426
+> mean(Recall.No)
+[1] 0.8135642
+> mean(Precision.No)
+[1] 0.5700144
+> mean(Precision.Yes)
+[1] 0.9646876
+
+Naive Por -G3-G2-G1
+> mean(Accuracy)
+[1] 0.8397734
+> mean(Recall.Yes)
+[1] 0.8888311
+> mean(Recall.No)
+[1] 0.5666667
+> mean(Precision.No)
+[1] 0.4779949
+> mean(Precision.Yes)
+[1] 0.9200522
+
+Tree por -G3
+> mean(Accuracy)
+[1] 0.9183661
+> mean(Recall.Yes)
+[1] 0.9617582
+> mean(Recall.No)
+[1] 0.678355
+> mean(Precision.No)
+[1] 0.7647059
+> mean(Precision.Yes)
+[1] 0.9428382
+> 
+
+Tree por -G3-G2-G1
+> mean(Accuracy)
+[1] 0.8181515
+> mean(Recall.Yes)
+[1] 0.9200924
+> mean(Recall.No)
+[1] 0.2658009
+> mean(Precision.No)
+[1] 0.4174545
+> mean(Precision.Yes)
+[1] 0.8734656
+
+LDA por -G3
+> mean(Accuracy)
+[1] 0.9106619
+> mean(Recall.Yes)
+[1] 0.9653148
+> mean(Recall.No)
+[1] 0.6062049
+> mean(Precision.No)
+[1] 0.7732317
+> mean(Precision.Yes)
+[1] 0.9314077
+
+LDA por -G3-G2-G1
+> mean(Accuracy)
+[1] 0.8582349
+> mean(Recall.Yes)
+[1] 0.9435913
+> mean(Recall.No)
+[1] 0.389899
+> mean(Precision.No)
+[1] 0.5581203
+> mean(Precision.Yes)
+[1] 0.8954231
+> 
+
+Boost -G3-G2-G1
+> mean(Accuracy)
+[1] 0.8474419
+> mean(Recall.Yes)
+[1] 0.32886
+> mean(Recall.No)
+[1] 0.9435913
+> mean(Precision.No)
+[1] 0.8847531
+> mean(Precision.Yes)
+[1] 0.5148607
+> 
+
+Boost -G3
+> mean(Accuracy)
+[1] 0.9383423
+> mean(Recall.Yes)
+[1] 0.7327561
+> mean(Recall.No)
+[1] 0.976157
+> mean(Precision.No)
+[1] 0.9519725
+> mean(Precision.Yes)
+[1] 0.8529038
+
+KNN -G3
+> mean(Accuracy)
+[1] 0.8859511
+> mean(Recall.Yes)
+[1] 0.9854834
+> mean(Recall.No)
+[1] 0.3450216
+> mean(Precision.No)
+[1] 0.8053968
+> mean(Precision.Yes)
+[1] 0.8914319
+> remove(d2.kknn)
+
+KNN -g3-g2-g1
+> mean(Accuracy)
+[1] 0.8582111
+> mean(Recall.Yes)
+[1] 0.9836977
+> mean(Recall.No)
+[1] 0.1737374
+> mean(Precision.No)
+[1] 0.6466667
+> mean(Precision.Yes)
+[1] 0.8670224
+> remove(d2.kknn)
+> 

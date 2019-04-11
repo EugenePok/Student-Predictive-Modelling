@@ -29,34 +29,33 @@ for(k in 1:nfolds){ # k folds
 
 plot(1:50,Best_k,xlab = "No.of.k", ylab= "Frequency")
 result = data.frame(Best_k)
-write.csv(result,'Best_k_for_KNNd2_2nd_time.csv')
+#write.csv(result,'Best_k_for_KNNd2_2nd_time.csv')
 
 nfolds = 5
-j = replicate(10,0)
-for(i in 1:10){
-  foldPosition = sample(rep(1:nfolds, length.out = dim(d2)[1]))
+foldPosition = sample(rep(1:nfolds, length.out = dim(d2)[1]))
+
+Accuracy = replicate(nfolds,0)
+Recall.No = replicate(nfolds,0)
+Recall.Yes = replicate(nfolds,0)
+Precision.No = replicate(nfolds,0)
+Precision.Yes = replicate(nfolds,0)
+
+for(k in 1:nfolds){ # k folds
+  test_i = which(foldPosition == k)
+  d2.test = d2[test_i,]
+  d2.train = d2[-test_i,]
   
-  Accuracy = replicate(nfolds,0)
-  Recall.No = replicate(nfolds,0)
-  Recall.Yes = replicate(nfolds,0)
-  Precision.No = replicate(nfolds,0)
-  Precision.Yes = replicate(nfolds,0)
-  
-  for(k in 1:nfolds){ # k folds
-    test_i = which(foldPosition == k)
-    d2.test = d2[test_i,]
-    d2.train = d2[-test_i,]
-    
-    d2.kknn = kknn(pass_fail~.-id-G3-G1-pass_fail-grades, d2.train, d2.test, k=12)
-    fit = fitted(d2.kknn)
-    perform <- table(fit, d2.test$pass_fail)
-    Accuracy[k] <- sum(perform[1,1],perform[2,2])/sum(perform[,])
-    Recall.No[k] <- perform[1,1]/sum(perform[,1])
-    Recall.Yes[k] <- perform[2,2]/sum(perform[,2])
-    Precision.No[k] <- perform[1,1]/sum(perform[1,])
-    Precision.Yes[k] <- perform[2,2]/sum(perform[2,])
-  }
-  
-  j[i] = mean(Accuracy)
-  remove(d2.kknn)
+  d2.kknn = kknn(pass_fail~.-id-G3-G2-G1-pass_fail-grades, d2.train, d2.test, k=12)
+  fit = fitted(d2.kknn)
+  perform <- table(fit, d2.test$pass_fail)
+  Accuracy[k] <- sum(perform[1,1],perform[2,2])/sum(perform[,])
+  Recall.No[k] <- perform[1,1]/sum(perform[,1])
+  Recall.Yes[k] <- perform[2,2]/sum(perform[,2])
+  Precision.No[k] <- perform[1,1]/sum(perform[1,])
+  Precision.Yes[k] <- perform[2,2]/sum(perform[2,])
 }
+mean(Accuracy)
+mean(Recall.Yes)
+mean(Recall.No)
+mean(Precision.No)
+mean(Precision.Yes)

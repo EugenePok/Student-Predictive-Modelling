@@ -1,0 +1,122 @@
+KNN Math k=31 -G3
+> mean(Accuracy)
+[1] 0.8025316
+> mean(Recall.Yes)
+[1] 0.9627825
+> mean(Recall.No)
+[1] 0.4856709
+> mean(Precision.No)
+[1] 0.89
+> mean(Precision.Yes)
+[1] 0.7945448
+> remove(d1.kknn)
+
+KNN Math k=31 -G3-G2-G1
+> mean(Accuracy)
+[1] 0.7012658
+> mean(Recall.Yes)
+[1] 0.9511145
+> mean(Recall.No)
+[1] 0.1943799
+> mean(Precision.No)
+[1] 0.7166667
+> mean(Precision.Yes)
+[1] 0.707615
+> remove(d1.kknn)
+
+LDA Math -G3
+> mean(Accuracy)
+[1] 0.8708861
+> mean(Recall.Yes)
+[1] 0.9133418
+> mean(Recall.No)
+[1] 0.7895074
+> mean(Precision.No)
+[1] 0.823353
+> mean(Precision.Yes)
+[1] 0.8998557
+
+LDA Math -G3-G2-G1
+> mean(Accuracy)
+[1] 0.6962025
+> mean(Recall.Yes)
+[1] 0.8528579
+> mean(Recall.No)
+[1] 0.378383
+> mean(Precision.No)
+[1] 0.5699697
+> mean(Precision.Yes)
+[1] 0.7383419
+
+Naives Math -G3
+> mean(Accuracy)
+[1] 0.8708861
+> mean(Recall.Yes)
+[1] 0.9097134
+> mean(Recall.No)
+[1] 0.7959521
+> mean(Precision.No)
+[1] 0.8151893
+> mean(Precision.Yes)
+[1] 0.9002233
+
+Naives Math -G3-G2-G1
+> mean(Accuracy)
+[1] 0.7063291
+> mean(Recall.Yes)
+[1] 0.8569006
+> mean(Recall.No)
+[1] 0.4052087
+> mean(Precision.No)
+[1] 0.5723241
+> mean(Precision.Yes)
+[1] 0.746746
+
+Tree Math -G3
+> mean(Accuracy)
+[1] 0.8860759
+> mean(Recall.Yes)
+[1] 0.9287448
+> mean(Recall.No)
+[1] 0.8033595
+> mean(Precision.No)
+[1] 0.8511852
+> mean(Precision.Yes)
+[1] 0.9054485
+
+Tree Math -G3-G2-G1
+> mean(Accuracy)
+[1] 0.6
+> mean(Recall.Yes)
+[1] 0.7098225
+> mean(Recall.No)
+[1] 0.3798809
+> mean(Precision.No)
+[1] 0.3940969
+> mean(Precision.Yes)
+[1] 0.6988488
+
+Boost Math -G3
+> mean(Accuracy)
+[1] 0.9012658
+> mean(Recall.Yes)
+[1] 0.8092141
+> mean(Recall.No)
+[1] 0.9475586
+> mean(Precision.No)
+[1] 0.9101391
+> mean(Precision.Yes)
+[1] 0.8868811
+
+Boost Math -G3-G2-G1
+> mean(Accuracy)
+[1] 0.6405063
+> mean(Recall.Yes)
+[1] 0.4026729
+> mean(Recall.No)
+[1] 0.7594739
+> mean(Precision.No)
+[1] 0.7213886
+> mean(Precision.Yes)
+[1] 0.4595326
+> 
